@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Investment Advisor</string>
+    <string name="tab_all">All Markets</string>
+    <string name="tab_uk">UK</string>
+    <string name="tab_europe">Europe</string>
+    <string name="notification_channel_name">Investment Recommendations</string>
+    <string name="notification_title">Today\'s Top 5 Investment Picks</string>
+    <string name="pull_to_refresh">Pull down to refresh</string>
+    <string name="no_recommendations">No recommendations match your criteria.</string>
+    <string name="good_time_to_buy">✓ GOOD TIME TO BUY</string>
+    <string name="wait_for_entry">⏳ WAIT FOR BETTER ENTRY</string>
+    <string name="score_label">Score</string>
+    <string name="ai_analysis">AI Analysis</string>
+    <string name="buy_reasons">Buy Reasons</string>
+    <string name="cautions">Cautions</string>
+</resources>

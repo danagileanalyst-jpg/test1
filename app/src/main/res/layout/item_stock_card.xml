@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:rippleColor="@color/ripple_color"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Top coloured strip: rank + score -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/gradient_card_header"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- Rank badge -->
+            <TextView
+                android:id="@+id/tvRank"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_rank_circle"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="#1" />
+
+            <!-- Ticker + company -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/tvTicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="AZN" />
+
+                <TextView
+                    android:id="@+id/tvCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCffffff"
+                    android:textSize="11sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="AstraZeneca PLC" />
+
+            </LinearLayout>
+
+            <!-- Score ring -->
+            <FrameLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp">
+
+                <ProgressBar
+                    android:id="@+id/progressScore"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progressDrawable="@drawable/circular_progress"
+                    tools:progress="78" />
+
+                <TextView
+                    android:id="@+id/tvScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="78" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!-- Body -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Sector + market + confidence badge -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/tvSector"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:textColor="@color/on_surface_variant"
+                    tools:text="Healthcare · LSE" />
+
+                <TextView
+                    android:id="@+id/tvMarket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_market_pill"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginStart="8dp"
+                    tools:text="UK" />
+
+                <TextView
+                    android:id="@+id/tvConfidence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_confidence_pill"
+                    tools:text="High Confidence" />
+
+            </LinearLayout>
+
+            <!-- Price row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/tvCurrentPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    tools:text="GBp 10,850" />
+
+                <TextView
+                    android:id="@+id/tvPriceChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="▲ 0.72%" />
+
+            </LinearLayout>
+
+            <!-- 4 metric chips row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/tvPE"
+                    style="@style/MetricChip"
+                    tools:text="P/E: 31.2x" />
+
+                <TextView
+                    android:id="@+id/tvROE"
+                    style="@style/MetricChip"
+                    android:layout_marginStart="6dp"
+                    tools:text="ROE: 18.4%" />
+
+                <TextView
+                    android:id="@+id/tvYield"
+                    style="@style/MetricChip"
+                    android:layout_marginStart="6dp"
+                    tools:text="Yield: 2.1%" />
+
+                <TextView
+                    android:id="@+id/tvDebt"
+                    style="@style/MetricChip"
+                    android:layout_marginStart="6dp"
+                    tools:text="D/E: 0.82" />
+
+            </LinearLayout>
+
+            <!-- Signal checkboxes row -->
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="4dp"
+                app:chipSpacingVertical="4dp"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipRevGrowing"
+                    style="@style/SignalChip"
+                    android:text="Rev ↑" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipProfitRising"
+                    style="@style/SignalChip"
+                    android:text="Profit ↑" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPriceLow"
+                    style="@style/SignalChip"
+                    android:text="Price Low" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDebtOk"
+                    style="@style/SignalChip"
+                    android:text="Debt OK" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipChartUp"
+                    style="@style/SignalChip"
+                    android:text="Chart ↗" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDivRising"
+                    style="@style/SignalChip"
+                    android:text="Div ↑" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- AI Recommendation -->
+            <TextView
+                android:id="@+id/tvAiRecommendation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_ai_card"
+                android:padding="12dp"
+                android:textSize="12sp"
+                android:textColor="@color/on_surface"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="10dp"
+                tools:text="[STRONG BUY] Over a 5-year horizon..." />
+
+            <!-- Buy signal banner -->
+            <TextView
+                android:id="@+id/tvBuySignal"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_buy_signal"
+                android:layout_marginBottom="8dp"
+                tools:text="✓ GOOD TIME TO BUY" />
+
+            <!-- 52w range + next statement -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv52Range"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="11sp"
+                    android:textColor="@color/on_surface_variant"
+                    tools:text="52w: GBp 9,420 – 12,850" />
+
+                <TextView
+                    android:id="@+id/tvNextStatement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/on_surface_variant"
+                    tools:text="Next results: 2025-05-08" />
+
+            </LinearLayout>
+
+            <!-- Negatives warning -->
+            <TextView
+                android:id="@+id/tvNegatives"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_warning"
+                android:padding="10dp"
+                android:textSize="12sp"
+                android:textColor="#B71C1C"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                tools:text="⚠ Zantac litigation overhang" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
+            app:navigationIconTint="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Identity card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:id="@+id/tvTicker"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary"
+                            tools:text="AZN" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end">
+
+                            <TextView
+                                android:id="@+id/tvPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/on_surface"
+                                tools:text="GBp 10,850" />
+
+                            <TextView
+                                android:id="@+id/tvDailyChange"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:text="▲ 0.72%" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvExchange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_variant"
+                        android:layout_marginBottom="4dp"
+                        tools:text="LSE · UK" />
+
+                    <TextView
+                        android:id="@+id/tvSector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/primary"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"
+                        tools:text="Healthcare" />
+
+                    <TextView
+                        android:id="@+id/tvDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface"
+                        android:lineSpacingMultiplier="1.4"
+                        tools:text="Global biopharmaceutical company..." />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Score + AI card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI Analysis"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <FrameLayout
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_marginEnd="16dp">
+
+                            <ProgressBar
+                                android:id="@+id/progressScore"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:progressDrawable="@drawable/circular_progress"
+                                tools:progress="78" />
+
+                            <TextView
+                                android:id="@+id/tvScoreValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:text="78/100" />
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvConfidence"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:background="@drawable/bg_confidence_pill"
+                                android:layout_marginBottom="8dp"
+                                tools:text="High Confidence" />
+
+                            <TextView
+                                android:id="@+id/tvBuySignal"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:background="@drawable/bg_buy_signal"
+                                tools:text="✓ GOOD TIME TO BUY" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvAiText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_ai_card"
+                        android:padding="12dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface"
+                        android:lineSpacingMultiplier="1.5"
+                        tools:text="[STRONG BUY] Over a 5-year horizon..." />
+
+                    <!-- Buy reasons -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Buy Reasons"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="6dp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupReasons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:chipSpacingHorizontal="4dp"
+                        app:chipSpacingVertical="4dp" />
+
+                    <!-- Cautions -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cautions"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="6dp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupCautions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:chipSpacingHorizontal="4dp"
+                        app:chipSpacingVertical="4dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Price detail card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price &amp; Valuation"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="12dp" />
+
+                    <include layout="@layout/row_metric" android:id="@+id/rowCurrentPrice" />
+                    <include layout="@layout/row_metric" android:id="@+id/row52Low" />
+                    <include layout="@layout/row_metric" android:id="@+id/row52High" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowPriceLow" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowPriceTrend" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowMarketCap" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowPE" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowPB" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowCheap" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowTarget" />
+                    <include layout="@layout/row_metric" android:id="@+id/rowOutlook" />
+
+                    <!-- Hidden binding targets (referenced individually) -->
+                    <TextView android:id="@+id/tvCurrentPriceVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvLow52Val" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvHigh52Val" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvPriceLowVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvPriceTrendVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvMarketCapVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvPEVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvPBVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvCheapVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvTargetVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvOutlookVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Financials card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Financials"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Binding targets for financials -->
+                    <TextView android:id="@+id/tvRevenueVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvRevGrowthVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvRevGrowingVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvProfitVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvProfitGrowthVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvProfitsRisingVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvDivYieldVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvDivRisingVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvROEVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvDebtEquityVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvNetDebtVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvDebtReasonableVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvOCFVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvNextStatementVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tv1YrPerfVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvChartUpVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+                    <TextView android:id="@+id/tvNegativesVal" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Full Year Revenue" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvRevenueDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="£45,800M" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Revenue Growing?" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvRevGrowingDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="Yes ✓" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Revenue Growth" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvRevGrowthDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="+7.3%" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pre-Tax Profit" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvProfitDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="£6,100M" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Profits Rising?" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvProfitsRisingDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="Yes ✓" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Dividend Yield" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvDivYieldDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="2.1%" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Dividends Rising?" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvDivRisingDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="Yes ✓" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Return on Equity" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvROEDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="18.4%" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Debt-to-Equity" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvDebtEquityDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="0.82" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Net Debt &lt; 3x Profit?" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvDebtReasonableDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="Yes ✓" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Operating Cash Flow" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvOCFDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="£8,200M" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="1-Year Performance" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tv1YrPerfDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="+8.3%" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Chart Trending Up?" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvChartUpDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="Yes ↗" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Next Statement" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvNextStatementDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold" tools:text="2025-05-08" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Negatives" android:textSize="13sp" android:textColor="@color/on_surface_variant" />
+                        <TextView android:id="@+id/tvNegativesDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="#D50000" android:textStyle="bold" tools:text="None identified" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
