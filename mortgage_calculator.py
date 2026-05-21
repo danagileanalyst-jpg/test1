@@ -73,13 +73,19 @@ def simulate(extra_monthly: float) -> dict:
             if yr not in snaps:
                 snaps[yr] = _snap(balance, total_interest)
 
+    total_interest_rounded = round(total_interest, 2)
+
+    # Back-fill interest still owed at each snapshot using the now-known total
+    for snap in snaps.values():
+        snap["interest_remaining"] = round(total_interest_rounded - snap["interest_paid"], 2)
+
     return {
         "extra":           extra_monthly,
         "monthly_payment": payment,
         "snaps":           snaps,
         "end_month":       end_month,
         "end_date":        add_months(start, end_month),
-        "total_interest":  round(total_interest, 2),
+        "total_interest":  total_interest_rounded,
         "final_balance":   round(balance, 2),
     }
 
@@ -247,6 +253,7 @@ def build_html(scenarios: list, actual_extra: float) -> str:
         for metric, key in (
             ("Remaining balance", "balance"),
             ("Interest paid to date", "interest_paid"),
+            ("Interest still owed", "interest_remaining"),
             ("Equity built", "equity"),
         ):
             cells = "".join(
